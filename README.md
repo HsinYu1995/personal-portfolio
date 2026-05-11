@@ -2,6 +2,12 @@
 
 Welcome to my personal portfolio website. I'm a Software Engineer looking for Software Engineer roles worldwide.
 
+## 🚀 Visit My Portfolio
+
+**Please visit my live portfolio here:** https://personal-portfolio-ten-chi-38.vercel.app/
+
+This repository contains the source code. To view my portfolio and learn about my skills, experience, and projects, please navigate to the deployment link above.
+
 ## About Me
 
 I'm a passionate software engineer with expertise in building modern web applications. This portfolio showcases my professional experience, technical skills, and projects I've worked on.
@@ -30,7 +36,7 @@ I'm a passionate software engineer with expertise in building modern web applica
 
 ## Live Site
 
-[View my portfolio](https://your-portfolio-url.vercel.app)
+[View my portfolio on Vercel](https://personal-portfolio-ten-chi-38.vercel.app/)
 
 ---
 
