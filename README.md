@@ -1,80 +1,37 @@
-# Personal Portfolio
+# Joe Lai - Personal Portfolio
 
-This is a personal portfolio website built with Next.js 16.2.6, React 18.3.1, TypeScript, and Tailwind CSS.
+Welcome to my personal portfolio website. I'm a Software Engineer looking for Software Engineer roles worldwide.
 
-## Features
+## About Me
 
-- **Summary and Skills**: Introduction and key skills section
-- **Work / Project Experience**: Showcase of professional experience and projects
-- **Tech Skills**: Technical skills and technologies
-- **Contact Methods**: Ways to get in touch
-- **Resume**: Downloadable resume
+I'm a passionate software engineer with expertise in building modern web applications. This portfolio showcases my professional experience, technical skills, and projects I've worked on.
 
-## Technologies Used
+## Quick Links
 
-- Next.js (App Router)
-- TypeScript
-- Tailwind CSS
-- ESLint
+- **Email:** [hsinyulai18@gmail.com](mailto:hsinyulai18@gmail.com)
+- **LinkedIn:** [linkedin.com/in/hsinyulai](https://www.linkedin.com/in/hsinyulai/)
+- **GitHub:** [github.com/HsinYu1995](https://github.com/HsinYu1995)
 
-## Getting Started
+## Portfolio Sections
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run development server: `npm run dev`
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+1. **Skills** - Key competencies and technical abilities
+2. **Work & Project Experience** - Professional roles and notable projects
+3. **Tech Skills** - Programming languages, frameworks, and tools
+4. **Contact** - Get in touch with me
+5. **Resume** - Download my full resume
 
-## Build
+## Tech Stack
 
-```bash
-npm run build
-npm run start
-```
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+- **Version Control:** Git & GitHub
 
-## Deployment
+## Live Site
 
-This project is optimized for deployment on Vercel.
+[View my portfolio](https://your-portfolio-url.vercel.app)
 
-### Deploy to Vercel
+---
 
-1. Push your code to a GitHub repository
-2. Connect your GitHub account to Vercel
-3. Import the repository
-4. Deploy
-
-## Personal Information
-
-### Summary
-[Replace with your personal summary]
-
-### Skills
-- [Skill 1]
-- [Skill 2]
-- [Skill 3]
-
-### Work Experience
-- **Position** at Company (Dates)
-  - Description
-
-### Projects
-- **Project Name**
-  - Description
-  - Technologies used
-  - Link
-
-### Tech Skills
-- Programming Languages: [List]
-- Frameworks: [List]
-- Tools: [List]
-
-### Contact
-- Email: [your.email@example.com]
-- LinkedIn: [https://linkedin.com/in/yourprofile]
-- GitHub: [https://github.com/yourusername]
-
-### Resume
-Download my resume: [Link to resume file or PDF]
-
-## License
-
-[Add license if applicable]
+*Feel free to explore my portfolio and reach out if you'd like to collaborate or discuss opportunities!*
