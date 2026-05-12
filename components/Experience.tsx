@@ -12,8 +12,8 @@ const Experience = () => {
             <p className="mt-4">Description of your role and achievements.</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold">Project Name</h3>
-            <p className="text-gray-600">Technologies Used: React, TypeScript</p>
+            <h3 className="text-xl font-semibold">Stiich</h3>
+            <p className="text-gray-600">Technologies Used: React Native</p>
             <p className="mt-4">Description of the project.</p>
           </div>
         </div>

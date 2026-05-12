@@ -9,14 +9,6 @@ const Hero = () => {
         <p className="text-lg max-w-2xl mx-auto">
           Looking for Software Engineer roles worldwide with expertise in building modern web applications.
         </p>
-        <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4">Skills</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <span className="bg-blue-600 px-4 py-2 rounded">Skill 1</span>
-            <span className="bg-blue-600 px-4 py-2 rounded">Skill 2</span>
-            <span className="bg-blue-600 px-4 py-2 rounded">Skill 3</span>
-          </div>
-        </div>
       </div>
     </section>
   );
