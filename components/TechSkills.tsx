@@ -1,145 +1,76 @@
-'use client';
-
-import React, { useState, useRef } from 'react';
-import { SiJavascript, SiTypescript, SiPython, SiReact, SiNextdotjs, SiNodedotjs, SiGit, SiDocker } from 'react-icons/si';
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiGit,
+  SiDocker,
+} from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
 
+const skillGroups = [
+  {
+    category: 'Languages',
+    skills: [
+      { name: 'JavaScript', Icon: SiJavascript, color: '#B45309' },
+      { name: 'TypeScript', Icon: SiTypescript, color: '#1D4ED8' },
+      { name: 'Python', Icon: SiPython, color: '#15803D' },
+    ],
+  },
+  {
+    category: 'Frameworks',
+    skills: [
+      { name: 'React', Icon: SiReact, color: '#0284C7' },
+      { name: 'Next.js', Icon: SiNextdotjs, color: '#1C1917' },
+      { name: 'Node.js', Icon: SiNodedotjs, color: '#15803D' },
+    ],
+  },
+  {
+    category: 'Tools',
+    skills: [
+      { name: 'Git', Icon: SiGit, color: '#C2410C' },
+      { name: 'Docker', Icon: SiDocker, color: '#0369A1' },
+      { name: 'VS Code', Icon: VscCode, color: '#1D4ED8' },
+    ],
+  },
+];
+
 const TechSkills = () => {
-  const [currentCard, setCurrentCard] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const iconMap: { [key: string]: React.ComponentType<any> } = {
-    JavaScript: SiJavascript,
-    TypeScript: SiTypescript,
-    Python: SiPython,
-    React: SiReact,
-    'Next.js': SiNextdotjs,
-    'Node.js': SiNodedotjs,
-    Git: SiGit,
-    Docker: SiDocker,
-    'VS Code': VscCode,
-  };
-
-  const skillsCategories = [
-    {
-      title: 'Languages',
-      skills: ['JavaScript', 'TypeScript', 'Python'],
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      title: 'Frameworks',
-      skills: ['React', 'Next.js', 'Node.js'],
-      color: 'from-purple-500 to-purple-600',
-    },
-    {
-      title: 'Tools',
-      skills: ['Git', 'Docker', 'VS Code'],
-      color: 'from-green-500 to-green-600',
-    },
-  ];
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-  };
-
-  const handleMouseUp = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    setIsDragging(false);
-    
-    const endX = e.clientX;
-    const diff = startX - endX;
-    
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        setCurrentCard((prev) => (prev + 1) % skillsCategories.length);
-      } else {
-        setCurrentCard((prev) => (prev - 1 + skillsCategories.length) % skillsCategories.length);
-      }
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsDragging(true);
-    setStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (!isDragging) return;
-    setIsDragging(false);
-    
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-    
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        setCurrentCard((prev) => (prev + 1) % skillsCategories.length);
-      } else {
-        setCurrentCard((prev) => (prev - 1 + skillsCategories.length) % skillsCategories.length);
-      }
-    }
-  };
-
   return (
-    <section className="py-20 bg-transparent">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">Tech Skills</h2>
-        
-        <div 
-          ref={containerRef}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          className="flex items-center justify-center cursor-grab active:cursor-grabbing"
+    <section id="skills" className="px-8 md:px-16 lg:px-24 py-28 bg-white">
+      <div className="max-w-4xl">
+        <p className="text-[11px] tracking-[0.3em] text-amber-700 uppercase mb-3 font-sans">
+          Toolkit
+        </p>
+        <h2
+          className="font-serif font-light text-stone-900 mb-16"
+          style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}
         >
-          {/* Card Container */}
-          <div className="w-full max-w-md">
-            <div
-              className={`bg-gradient-to-br ${skillsCategories[currentCard].color} text-white p-8 rounded-lg shadow-lg h-64 flex flex-col justify-center items-center transition-all duration-300 transform hover:scale-105 select-none`}
-            >
-              <h3 className="text-3xl font-bold mb-6">{skillsCategories[currentCard].title}</h3>
-              <ul className="space-y-4 text-center flex flex-col items-center">
-                {skillsCategories[currentCard].skills.map((skill, index) => {
-                  const IconComponent = iconMap[skill];
-                  return (
-                    <li key={index} className="flex flex-col items-center gap-2">
-                      {IconComponent ? (
-                        <IconComponent className="text-4xl" title={skill} />
-                      ) : null}
-                      <span className="text-sm font-medium">{skill}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
-        </div>
+          Tech Skills
+        </h2>
 
-        {/* Indicator Dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {skillsCategories.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentCard(index)}
-              className={`h-3 rounded-full transition-all ${
-                index === currentCard
-                  ? 'bg-purple-500 w-8'
-                  : 'bg-gray-500 w-3 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to skill ${index + 1}`}
-            />
+        <div className="space-y-14">
+          {skillGroups.map((group) => (
+            <div key={group.category}>
+              <p className="text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-5 font-sans">
+                {group.category}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {group.skills.map(({ name, Icon, color }) => (
+                  <div
+                    key={name}
+                    className="flex items-center gap-2.5 bg-stone-50 hover:bg-stone-100 border border-stone-100 hover:border-stone-200 px-5 py-3 rounded-xl transition-all duration-200 cursor-default"
+                  >
+                    <Icon className="text-lg flex-shrink-0" style={{ color }} />
+                    <span className="text-sm text-stone-700 font-medium font-sans">{name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
-        
-        <p className="text-center mt-8 text-gray-300 text-sm">Drag left or right to scroll</p>
       </div>
     </section>
   );
