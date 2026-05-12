@@ -1,12 +1,26 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import { SiJavascript, SiTypescript, SiPython, SiReact, SiNextdotjs, SiNodedotjs, SiGit, SiDocker } from 'react-icons/si';
+import { VscCode } from 'react-icons/vsc';
 
 const TechSkills = () => {
   const [currentCard, setCurrentCard] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const iconMap: { [key: string]: React.ComponentType<any> } = {
+    JavaScript: SiJavascript,
+    TypeScript: SiTypescript,
+    Python: SiPython,
+    React: SiReact,
+    'Next.js': SiNextdotjs,
+    'Node.js': SiNodedotjs,
+    Git: SiGit,
+    Docker: SiDocker,
+    'VS Code': VscCode,
+  };
 
   const skillsCategories = [
     {
@@ -92,12 +106,18 @@ const TechSkills = () => {
               className={`bg-gradient-to-br ${skillsCategories[currentCard].color} text-white p-8 rounded-lg shadow-lg h-64 flex flex-col justify-center items-center transition-all duration-300 transform hover:scale-105 select-none`}
             >
               <h3 className="text-3xl font-bold mb-6">{skillsCategories[currentCard].title}</h3>
-              <ul className="space-y-3 text-center">
-                {skillsCategories[currentCard].skills.map((skill, index) => (
-                  <li key={index} className="text-lg font-semibold">
-                    {skill}
-                  </li>
-                ))}
+              <ul className="space-y-4 text-center flex flex-col items-center">
+                {skillsCategories[currentCard].skills.map((skill, index) => {
+                  const IconComponent = iconMap[skill];
+                  return (
+                    <li key={index} className="flex flex-col items-center gap-2">
+                      {IconComponent ? (
+                        <IconComponent className="text-4xl" title={skill} />
+                      ) : null}
+                      <span className="text-sm font-medium">{skill}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
