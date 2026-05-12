@@ -73,9 +73,9 @@ const TechSkills = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-transparent">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Tech Skills</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-white">Tech Skills</h2>
         
         <div 
           ref={containerRef}
@@ -111,15 +111,15 @@ const TechSkills = () => {
               onClick={() => setCurrentCard(index)}
               className={`h-3 rounded-full transition-all ${
                 index === currentCard
-                  ? 'bg-gray-800 w-8'
-                  : 'bg-gray-400 w-3 hover:bg-gray-600'
+                  ? 'bg-purple-500 w-8'
+                  : 'bg-gray-500 w-3 hover:bg-gray-400'
               }`}
               aria-label={`Go to skill ${index + 1}`}
             />
           ))}
         </div>
         
-        <p className="text-center mt-8 text-gray-600 text-sm">Drag left or right to scroll</p>
+        <p className="text-center mt-8 text-gray-300 text-sm">Drag left or right to scroll</p>
       </div>
     </section>
   );
