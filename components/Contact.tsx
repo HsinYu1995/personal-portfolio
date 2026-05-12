@@ -32,8 +32,7 @@ const Contact = () => {
           Get in touch
         </p>
         <h2
-          className="font-serif font-light text-white mb-4"
-          style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}
+          className="font-serif font-light text-white text-section mb-4"
         >
           Contact
         </h2>

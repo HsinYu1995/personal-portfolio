@@ -24,14 +24,14 @@ const Experience = () => {
         <p className="text-[11px] tracking-[0.3em] text-amber-700 uppercase mb-3 font-sans">
           Background
         </p>
-        <h2 className="font-serif font-light text-stone-900 mb-16" style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
+        <h2 className="font-serif font-light text-stone-900 text-section mb-16">
           Experience
         </h2>
 
         <div className="space-y-6">
-          {experiences.map((exp, idx) => (
+          {experiences.map((exp) => (
             <div
-              key={idx}
+              key={exp.company}
               className="group relative bg-white rounded-2xl p-8 border border-stone-100 hover:-translate-y-0.5 transition-all duration-300 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.08)]"
             >
               {/* Left accent bar */}

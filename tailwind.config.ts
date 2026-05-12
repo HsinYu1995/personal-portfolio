@@ -12,6 +12,10 @@ const config: Config = {
         serif: ['var(--font-cormorant)', 'Georgia', 'serif'],
         sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
       },
+      fontSize: {
+        display: 'clamp(5rem, 14vw, 12rem)',
+        section: 'clamp(2.5rem, 5vw, 3.5rem)',
+      },
       keyframes: {
         fadeUp: {
           '0%': { opacity: '0', transform: 'translateY(24px)' },

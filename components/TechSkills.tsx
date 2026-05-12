@@ -45,8 +45,7 @@ const TechSkills = () => {
           Toolkit
         </p>
         <h2
-          className="font-serif font-light text-stone-900 mb-16"
-          style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)' }}
+          className="font-serif font-light text-stone-900 text-section mb-16"
         >
           Tech Skills
         </h2>
