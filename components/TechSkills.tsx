@@ -1,9 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const TechSkills = () => {
   const [currentCard, setCurrentCard] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const skillsCategories = [
     {
@@ -23,12 +26,50 @@ const TechSkills = () => {
     },
   ];
 
-  const handleNext = () => {
-    setCurrentCard((prev) => (prev + 1) % skillsCategories.length);
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.clientX);
   };
 
-  const handlePrev = () => {
-    setCurrentCard((prev) => (prev - 1 + skillsCategories.length) % skillsCategories.length);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    const endX = e.clientX;
+    const diff = startX - endX;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        setCurrentCard((prev) => (prev + 1) % skillsCategories.length);
+      } else {
+        setCurrentCard((prev) => (prev - 1 + skillsCategories.length) % skillsCategories.length);
+      }
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        setCurrentCard((prev) => (prev + 1) % skillsCategories.length);
+      } else {
+        setCurrentCard((prev) => (prev - 1 + skillsCategories.length) % skillsCategories.length);
+      }
+    }
   };
 
   return (
@@ -36,20 +77,19 @@ const TechSkills = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Tech Skills</h2>
         
-        <div className="flex items-center justify-center gap-4">
-          {/* Previous Button */}
-          <button
-            onClick={handlePrev}
-            className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full transition transform hover:scale-110"
-            aria-label="Previous skill"
-          >
-            ←
-          </button>
-
+        <div 
+          ref={containerRef}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="flex items-center justify-center cursor-grab active:cursor-grabbing"
+        >
           {/* Card Container */}
           <div className="w-full max-w-md">
             <div
-              className={`bg-gradient-to-br ${skillsCategories[currentCard].color} text-white p-8 rounded-lg shadow-lg h-64 flex flex-col justify-center items-center transition-all duration-300 transform hover:scale-105`}
+              className={`bg-gradient-to-br ${skillsCategories[currentCard].color} text-white p-8 rounded-lg shadow-lg h-64 flex flex-col justify-center items-center transition-all duration-300 transform hover:scale-105 select-none`}
             >
               <h3 className="text-3xl font-bold mb-6">{skillsCategories[currentCard].title}</h3>
               <ul className="space-y-3 text-center">
@@ -61,15 +101,6 @@ const TechSkills = () => {
               </ul>
             </div>
           </div>
-
-          {/* Next Button */}
-          <button
-            onClick={handleNext}
-            className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full transition transform hover:scale-110"
-            aria-label="Next skill"
-          >
-            →
-          </button>
         </div>
 
         {/* Indicator Dots */}
@@ -87,6 +118,8 @@ const TechSkills = () => {
             />
           ))}
         </div>
+        
+        <p className="text-center mt-8 text-gray-600 text-sm">Drag left or right to scroll</p>
       </div>
     </section>
   );

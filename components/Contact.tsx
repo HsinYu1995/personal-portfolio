@@ -2,13 +2,26 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <section className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-12">Contact Me</h2>
-        <div className="space-y-4">
-          <p><strong>Email:</strong> <a href="mailto:hsinyulai18@gmail.com" className="text-blue-600">hsinyulai18@gmail.com</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/hsinyulai/" className="text-blue-600">linkedin.com/in/hsinyulai</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/HsinYu1995" className="text-blue-600">github.com/HsinYu1995</a></p>
+    <section className="fixed right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-b from-blue-600 to-blue-700 text-white p-6 rounded-l-lg shadow-lg z-50 max-w-xs">
+      <h2 className="text-2xl font-bold mb-6">Contact Me</h2>
+      <div className="space-y-4">
+        <div>
+          <p className="text-sm font-semibold mb-1">Email:</p>
+          <a href="mailto:hsinyulai18@gmail.com" className="text-white hover:text-blue-100 underline text-sm break-all">
+            hsinyulai18@gmail.com
+          </a>
+        </div>
+        <div>
+          <p className="text-sm font-semibold mb-1">LinkedIn:</p>
+          <a href="https://www.linkedin.com/in/hsinyulai/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-100 underline text-sm">
+            linkedin.com/in/hsinyulai
+          </a>
+        </div>
+        <div>
+          <p className="text-sm font-semibold mb-1">GitHub:</p>
+          <a href="https://github.com/HsinYu1995" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-100 underline text-sm">
+            github.com/HsinYu1995
+          </a>
         </div>
       </div>
     </section>
