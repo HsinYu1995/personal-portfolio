@@ -23,6 +23,12 @@ const Contact = () => {
             github.com/HsinYu1995
           </a>
         </div>
+        <div className="pt-4 border-t border-blue-500">
+          <p className="text-sm font-semibold mb-3">Resume:</p>
+          <a href="/resume.pdf" download className="block w-full bg-white text-blue-700 px-4 py-2 rounded font-semibold text-center hover:bg-blue-50 transition">
+            Download Resume
+          </a>
+        </div>
       </div>
     </section>
   );
