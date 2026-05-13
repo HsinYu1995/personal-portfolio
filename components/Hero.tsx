@@ -50,13 +50,6 @@ const Hero = () => {
               {item.label}
             </a>
           ))}
-          <a
-            href="/resume.pdf"
-            download
-            className="text-xs border border-stone-300 px-4 py-2 rounded-full text-stone-700 hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all duration-300 font-sans"
-          >
-            Resume ↓
-          </a>
         </div>
       </nav>
 

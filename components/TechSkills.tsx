@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import {
   SiJavascript,
   SiTypescript,
@@ -14,25 +15,25 @@ const skillGroups = [
   {
     category: 'Languages',
     skills: [
-      { name: 'JavaScript', Icon: SiJavascript, color: '#B45309' },
-      { name: 'TypeScript', Icon: SiTypescript, color: '#1D4ED8' },
-      { name: 'Python', Icon: SiPython, color: '#15803D' },
+      { name: 'JavaScript', Icon: SiJavascript, colorStyle: { color: '#B45309' } as CSSProperties },
+      { name: 'TypeScript', Icon: SiTypescript, colorStyle: { color: '#1D4ED8' } as CSSProperties },
+      { name: 'Python', Icon: SiPython, colorStyle: { color: '#15803D' } as CSSProperties },
     ],
   },
   {
     category: 'Frameworks',
     skills: [
-      { name: 'React', Icon: SiReact, color: '#0284C7' },
-      { name: 'Next.js', Icon: SiNextdotjs, color: '#1C1917' },
-      { name: 'Node.js', Icon: SiNodedotjs, color: '#15803D' },
+      { name: 'React', Icon: SiReact, colorStyle: { color: '#0284C7' } as CSSProperties },
+      { name: 'Next.js', Icon: SiNextdotjs, colorStyle: { color: '#1C1917' } as CSSProperties },
+      { name: 'Node.js', Icon: SiNodedotjs, colorStyle: { color: '#15803D' } as CSSProperties },
     ],
   },
   {
     category: 'Tools',
     skills: [
-      { name: 'Git', Icon: SiGit, color: '#C2410C' },
-      { name: 'Docker', Icon: SiDocker, color: '#0369A1' },
-      { name: 'VS Code', Icon: VscCode, color: '#1D4ED8' },
+      { name: 'Git', Icon: SiGit, colorStyle: { color: '#C2410C' } as CSSProperties },
+      { name: 'Docker', Icon: SiDocker, colorStyle: { color: '#0369A1' } as CSSProperties },
+      { name: 'VS Code', Icon: VscCode, colorStyle: { color: '#1D4ED8' } as CSSProperties },
     ],
   },
 ];
@@ -57,12 +58,12 @@ const TechSkills = () => {
                 {group.category}
               </p>
               <div className="flex flex-wrap gap-3">
-                {group.skills.map(({ name, Icon, color }) => (
+                {group.skills.map(({ name, Icon, colorStyle }) => (
                   <div
                     key={name}
                     className="flex items-center gap-2.5 bg-stone-50 hover:bg-stone-100 border border-stone-100 hover:border-stone-200 px-5 py-3 rounded-xl transition-all duration-200 cursor-default"
                   >
-                    <Icon className="text-lg flex-shrink-0" style={{ color }} />
+                    <Icon className="text-lg flex-shrink-0" style={colorStyle} />
                     <span className="text-sm text-stone-700 font-medium font-sans">{name}</span>
                   </div>
                 ))}
