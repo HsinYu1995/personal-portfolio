@@ -9,6 +9,7 @@ import {
   SiGit,
   SiDocker,
 } from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 import { VscCode } from 'react-icons/vsc';
 
 const skillGroups = [
@@ -18,6 +19,7 @@ const skillGroups = [
       { name: 'JavaScript', Icon: SiJavascript, colorStyle: { color: '#B45309' } as CSSProperties },
       { name: 'TypeScript', Icon: SiTypescript, colorStyle: { color: '#1D4ED8' } as CSSProperties },
       { name: 'Python', Icon: SiPython, colorStyle: { color: '#15803D' } as CSSProperties },
+      { name: 'Java', Icon: FaJava, colorStyle: { color: '#B91C1C' } as CSSProperties },
     ],
   },
   {
